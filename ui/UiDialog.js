@@ -20,7 +20,8 @@ export class UiDialog extends BaseComponent {
       noCancelOnOutsideClick: {
         type: Boolean,
         value: true
-      }
+      },
+      externalStyles: {}
     };
   }
 
@@ -49,8 +50,8 @@ export class UiDialog extends BaseComponent {
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
           max-width: calc(100% - 40px);
           max-height: calc(100% - 40px);
-          width: 640px;
           left: calc(50% - 320px);
+          width: 640px;
         }
         .wrapper[opened] {
           display: flex;
@@ -62,6 +63,7 @@ export class UiDialog extends BaseComponent {
           min-height: 64px;
           padding: 0 16px;
           font-size: 20px;
+          font-family: 'Roboto', serif;
         }
         .title {
           flex: 1;
@@ -79,6 +81,7 @@ export class UiDialog extends BaseComponent {
           overflow: auto;
         }
       </style>
+      ${this.externalStyles || ''}
       <div ?opened="${this.opened}" class="bg"></div>
       <div ?opened="${this.opened}" class="wrapper">
         <div class="toolbar">
