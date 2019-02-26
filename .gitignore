@@ -1,0 +1,15 @@
+node_modules
+pids
+data
+static/app/vendor
+static/app-build
+.idea
+dump
+dump.tar.gz
+.DS_Store
+log
+*.log
+dump.rdb
+db
+package-lock.json
+static/package-lock.json
