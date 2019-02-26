@@ -1,5 +1,4 @@
 import { BaseComponent, html } from '../../frontend-common/BaseComponent.js';
-import { icons } from '../icons.js';
 
 export class UiDialog extends BaseComponent {
   static get properties() {
@@ -84,7 +83,7 @@ export class UiDialog extends BaseComponent {
       <div ?opened="${this.opened}" class="wrapper">
         <div class="toolbar">
           <div class="title">${this.title}</div>
-          <div class="close" @click="${() => this.close()}">🞫</div>
+          <div class="close" @click="${() => this.close()}">${this.closeIcon || '🞫'}</div>
         </div>
         <div class="content"><slot></slot></div>
       </div>
