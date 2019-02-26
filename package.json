@@ -13,7 +13,7 @@
   "author": "Artem Tankayan",
   "license": "ISC",
   "dependencies": {
-    "frontend-common": "github:namitos/frontend-common#v1"
+    "lit-html": "^1.0.0"
   },
   "bugs": {
     "url": "https://github.com/namitos/webcomponents-collection/issues"

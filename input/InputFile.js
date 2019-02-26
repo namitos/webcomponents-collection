@@ -1,4 +1,4 @@
-import { BaseComponent, html } from '../../frontend-common/BaseComponent.js';
+import { BaseComponent, html } from '../BaseComponent.js';
 
 export class InputFile extends BaseComponent {
   static get properties() {
