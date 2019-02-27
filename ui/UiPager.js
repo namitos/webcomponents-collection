@@ -9,12 +9,10 @@ export class UiPager extends BaseComponent {
         notify: true
       },
       pages: {
-        //сколько всего страниц
         type: Number,
         value: 0
       },
       viewPagesDiapazone: {
-        //сколько страниц показывать вокруг активной
         type: Number,
         value: 2
       }
