@@ -13,7 +13,9 @@
   "author": "Artem Tankayan",
   "license": "ISC",
   "dependencies": {
-    "lit-html": "^1.0.0"
+    "lit-html": "^1.0.0",
+    "ace-builds": "github:ajaxorg/ace-builds",
+    "@ckeditor/ckeditor5-build-classic": "^11.2.0"
   },
   "bugs": {
     "url": "https://github.com/namitos/webcomponents-collection/issues"
