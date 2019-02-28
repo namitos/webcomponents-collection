@@ -110,7 +110,6 @@ export class InputFile extends BaseComponent {
         .img-wrapper img {
           display: block;
           max-width: 120px;
-          max-height: 120px;
         }
 
         .img-wrapper .link {
@@ -199,10 +198,10 @@ export class InputFile extends BaseComponent {
             let { result } = e.target;
             if (this.multiple) {
               this.value.push(result);
-              this.render();
             } else {
               this.value = result;
             }
+            this.render();
           };
           reader.onerror = (e) => {
             console.error(e);
