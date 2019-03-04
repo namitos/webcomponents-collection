@@ -8,7 +8,7 @@ export class UiPager extends BaseComponent {
         value: 0,
         notify: true
       },
-      pages: {
+      pagesCount: {
         type: Number,
         value: 0
       },
@@ -20,7 +20,7 @@ export class UiPager extends BaseComponent {
   }
 
   template() {
-    let allPagesCount = this.pages - 1;
+    let allPagesCount = this.pagesCount - 1;
     let visiblePages = this.viewPagesDiapazone * 2 + 1;
     if (allPagesCount < visiblePages) {
       visiblePages = allPagesCount + 1;
@@ -92,7 +92,7 @@ export class UiPager extends BaseComponent {
   }
 
   next() {
-    if (this.page < this.pages) {
+    if (this.page < this.pagesCount) {
       this.page++;
     }
   }
