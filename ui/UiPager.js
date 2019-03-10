@@ -85,9 +85,11 @@ export class UiPager extends BaseComponent {
           display: none;
         }
       </style>
+      <a class="arrow" ?hidden="${this.page <= 0}" @click="${() => (this.page = 0)}">${this.chevronsLeft || '‹‹'}</a>
       <a class="arrow" ?hidden="${this.page <= 0}" @click="${() => this.prev()}">${this.chevronLeft || '‹'}</a>
       ${pages}
       <a class="arrow" ?hidden="${this.page >= allPagesCount}" @click="${() => this.next()}">${this.chevronRight || '›'}</a>
+      <a class="arrow" ?hidden="${this.page >= allPagesCount}" @click="${() => (this.page = this.pagesCount - 1)}">${this.chevronsRight || '››'}</a>
     `;
   }
 
