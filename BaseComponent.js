@@ -8,7 +8,15 @@ export class BaseComponent extends BaseComponentMixin(HTMLElement) {
   }
 
   render() {
-    render(this.template(), this._content);
+    if (!this.rendering) {
+      this.rendering = true;
+      setTimeout(() => {
+        render(this.template(), this._content);
+        this.rendering = false;
+      }, 0);
+    } else {
+      // console.log(this, 'skip render');
+    }
     return this;
   }
 
@@ -17,6 +25,6 @@ export class BaseComponent extends BaseComponentMixin(HTMLElement) {
   }
 
   connectedCallback() {
-    this.render();
+    // this.render();
   }
 }
