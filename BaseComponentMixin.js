@@ -51,7 +51,7 @@ export function BaseComponentMixin(base = class {}) {
     }
 
     constructor(args = {}) {
-      super();
+      super(...arguments);
       this.initialize(args);
     }
 
@@ -91,7 +91,7 @@ export function BaseComponentMixin(base = class {}) {
                   this[prop.observer]();
                 }
               }
-              if (!prop.noRender && this._wrapper.parentNode) {
+              if (this._watchingPropertiesInitialized && !prop.noRender) {
                 this.render();
               }
               if (prop.notify) {
@@ -112,11 +112,16 @@ export function BaseComponentMixin(base = class {}) {
           this[k] = args[k];
         }
       });
-      this.render();
+      this._watchingPropertiesInitialized = true;
+      this.render(true);
       if (args.id) {
         this._wrapper.setAttribute('id', args.id);
       }
       //console.log(`constructor of ${is}`, this.el);
+    }
+
+    render(immediate = false) {
+      console.error('implement render!', immediate);
     }
 
     emit(type, detail) {

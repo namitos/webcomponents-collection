@@ -8,7 +8,7 @@ export class UiPager extends BaseComponent {
         value: 0,
         notify: true
       },
-      pages: {
+      pagesCount: {
         type: Number,
         value: 0
       },
@@ -20,7 +20,7 @@ export class UiPager extends BaseComponent {
   }
 
   template() {
-    let allPagesCount = this.pages - 1;
+    let allPagesCount = this.pagesCount - 1;
     let visiblePages = this.viewPagesDiapazone * 2 + 1;
     if (allPagesCount < visiblePages) {
       visiblePages = allPagesCount + 1;
@@ -85,14 +85,16 @@ export class UiPager extends BaseComponent {
           display: none;
         }
       </style>
+      <a class="arrow" ?hidden="${this.page <= 0}" @click="${() => (this.page = 0)}">${this.chevronsLeft || '‹‹'}</a>
       <a class="arrow" ?hidden="${this.page <= 0}" @click="${() => this.prev()}">${this.chevronLeft || '‹'}</a>
       ${pages}
       <a class="arrow" ?hidden="${this.page >= allPagesCount}" @click="${() => this.next()}">${this.chevronRight || '›'}</a>
+      <a class="arrow" ?hidden="${this.page >= allPagesCount}" @click="${() => (this.page = this.pagesCount - 1)}">${this.chevronsRight || '››'}</a>
     `;
   }
 
   next() {
-    if (this.page < this.pages) {
+    if (this.page < this.pagesCount) {
       this.page++;
     }
   }
