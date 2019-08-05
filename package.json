@@ -13,7 +13,7 @@
   "author": "Artem Tankayan",
   "license": "ISC",
   "dependencies": {
-    "lit-html": "^1.0.0",
+    "lit-html": "^1.1.1",
     "ace-builds": "github:ajaxorg/ace-builds"
   },
   "bugs": {
