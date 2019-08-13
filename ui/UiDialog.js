@@ -51,7 +51,6 @@ export class UiDialog extends BaseComponent {
           max-width: calc(100% - 40px);
           max-height: calc(100% - 40px);
           left: calc(50% - 320px);
-          width: 640px;
         }
         .wrapper[opened] {
           display: flex;
