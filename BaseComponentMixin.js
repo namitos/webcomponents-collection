@@ -113,7 +113,7 @@ export function BaseComponentMixin(base = class {}) {
         }
       });
       this._watchingPropertiesInitialized = true;
-      this.render(true);
+      this.render();
       if (args.id) {
         this._wrapper.setAttribute('id', args.id);
       }

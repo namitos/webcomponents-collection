@@ -7,26 +7,21 @@ export class BaseComponent extends BaseComponentMixin(HTMLElement) {
     throw { name: 'BaseComponentError', text: 'template() method required' };
   }
 
-  _render() {
+  update() {
     render(this.template(), this._content);
   }
 
-  render(immediate) {
-    if (immediate === true) {
-      this._render();
-    } else {
-      if (!this.rendering) {
-        this.rendering = true;
-        setTimeout(() => {
-          this._render();
-          this.rendering = false;
-        }, 0);
-      } else {
-        // console.log(this, 'skip render');
-      }
-    }
+  nextTick() {
+    return new Promise((resolve) => requestAnimationFrame(() => resolve()));
+  }
 
-    return this;
+  async render() {
+    if (this._updating) {
+      return;
+    }
+    this._updating = true;
+    await new Promise((resolve) => requestAnimationFrame(() => resolve(this.update())));
+    this._updating = false;
   }
 
   connectedCallback() {}
