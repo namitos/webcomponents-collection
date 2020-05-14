@@ -561,9 +561,10 @@ export class InputCode extends BaseComponent {
     `;
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     super.connectedCallback();
     if (window.ace) {
+      await this.nextTick()
       this.editor = window.ace.edit(this._content.getElementById('editor'));
       this.editor.setValue(this.value);
       this.editor.setTheme('ace/theme/monokai');
