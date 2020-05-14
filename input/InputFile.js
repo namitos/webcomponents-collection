@@ -153,8 +153,9 @@ export class InputFile extends BaseComponent {
     return this._content.querySelector('.dropzone');
   }
 
-  constructor() {
-    super(...arguments);
+  async connectedCallback() {
+    super.connectedCallback();
+    await this.nextTick()
     this._dropzone.addEventListener('dragover', (e) => {
       e.preventDefault();
       this._dropzone.classList.add('dragover');
