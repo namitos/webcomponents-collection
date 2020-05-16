@@ -200,7 +200,6 @@ export class InputCode extends BaseComponent {
     -moz-user-select: text;
     -webkit-user-select: text;
     user-select: text;
-    /*with `pre-line` chrome inserts &nbsp; instead of space*/
     white-space: pre!important;
 }
 .ace_text-input.ace_composition {
@@ -232,14 +231,11 @@ export class InputCode extends BaseComponent {
     z-index: 1;
     position: absolute;
     overflow: hidden;
-    /* workaround for chrome bug https://github.com/ajaxorg/ace/issues/2312*/
     word-wrap: normal;
     white-space: pre;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-    /* setting pointer-events: auto; on node under the mouse, which changes
-        during scroll, will break mouse wheel scrolling in Safari */
     pointer-events: none;
 }
 
@@ -294,7 +290,6 @@ export class InputCode extends BaseComponent {
     position: absolute;
     box-sizing: border-box;
     border-left: 2px solid;
-    /* workaround for smooth cursor repaintng whole screen in chrome */
     transform: translatez(0);
 }
 
